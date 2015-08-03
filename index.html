@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Hasib Billah">
+		<meta name="description" content="Local Storage Manipulation">
+
+		<title>Local Storage Manipulation</title>
+
+		<link rel="stylesheet" type="text/css" href="assets/app.css">
+	</head>
+
+	<body>
+		<div class="wrapper">
+
+      <div class="slide">
+        <div id="add-contact" class="content form">
+          <h1>Sign Up for Free</h1>
+          <form>
+            <ul>
+              <li class="column-group">
+                <input class="column two-column-gap left" type="text" name="first-name" placeholder="First Name">
+                <input class="column two-column-gap right" type="text" name="last-name" placeholder="Last Name">
+              </li>
+              <li><input class="one-column" type="email" name="email" placeholder="Email Address"></li>
+              <li><input class="one-column" type="tel" name="phone" placeholder="Phone Number"></li>
+              <li><textarea class="one-column" name="address" placeholder="Address"></textarea></li>
+              <li>
+                <a class="btn two-column-gap left cancel" href="">Cancel</a>
+                <a class="btn two-column-gap right submit" href="">Submit</a>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div id="list-contact" class="content table">
+          <div class="title">
+            <h1>All Contacts</h1>
+            <a class="btn fav right submit" href="">Sign Up</a>
+          </div>
+          <div class="search-bar column-group">
+            <label class="column left">Search</label>
+            <input class="column right" type="text" name="search" placeholder="Search">
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Serial No.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Mobile No.</th>
+                <th>Address</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+			<div class="slide">
+        <div id="edit-contact" class="content form">
+          <h1>Edit Information</h1>
+          <form>
+            <ul>
+              <li class="column-group">
+                <input class="column two-column-gap left" type="text" name="first-name" placeholder="First Name">
+                <input class="column two-column-gap right" type="text" name="last-name" placeholder="Last Name">
+              </li>
+              <li><input class="one-column" type="email" name="email" placeholder="Email Address"></li>
+              <li><input class="one-column" type="tel" name="phone" placeholder="Phone Number"></li>
+              <li><textarea class="one-column" name="address" placeholder="Address"></textarea></li>
+              <li>
+                <a class="btn two-column-gap left cancel" href="">Cancel</a>
+                <a class="btn two-column-gap right submit" href="">Submit</a>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+
+		</div>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="assets/slider.js"></script>
+    <script type="text/javascript" src="assets/formUtils.js"></script>
+    <script type="text/javascript" src="assets/storageManager.js"></script>
+    <script type="text/javascript" src="assets/tableRenderer.js"></script>
+    <script type="text/javascript" src="assets/app.js"></script>
+	</body>
+</html>
