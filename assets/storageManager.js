@@ -6,31 +6,26 @@ var storageManager = new function() {
         localStorage.setItem(key, val);
     }
 
-    function remove(key) {
+    function erase(key) {
         localStorage.removeItem(key);
     }
 
-    function getData(key) {
+    function get(key) {
         return JSON.parse(localStorage.getItem(key));
     }
 
-    function getAllData() {
-        var formDatas = [];
+    function getAll() {
+        var formData = [];
         for (var key in localStorage)
-            formDatas.push(getData(key));
+            formData.push(get(key));
 
-        return formDatas;
-    }
-
-    function update(obj) {
-        insert(obj);
+        return formData;
     }
 
     return {
         insert: insert,
-        remove: remove,
-        getData: getData,
-        getAllData: getAllData,
-        update: update
+        erase: erase,
+        get: get,
+        getAll: getAll,
     };
-}();
+};

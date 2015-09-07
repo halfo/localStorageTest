@@ -1,12 +1,12 @@
 var FormUtils = function(form) {
-    var firstName   = "",
-        lastName    = "",
-        email       = "",
-        phoneNumber = "",
-        address     = "",
-        isValid     = true;
+    var firstName      = "",
+        lastName       = "",
+        email          = "",
+        phoneNumber    = "",
+        address        = "",
+        isValid        = true,
 
-    var firstNameObj   = $(form).find('input[name="first-name"]')[0],
+        firstNameObj   = $(form).find('input[name="first-name"]')[0],
         lastNameObj    = $(form).find('input[name="last-name"]')[0],
         emailObj       = $(form).find('input[name="email"]')[0],
         phoneNumberObj = $(form).find('input[name="phone"]')[0],

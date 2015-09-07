@@ -2,8 +2,6 @@ var tableRenderer = new function() {
     var parent = $("tbody"),
         table  = $("table");
 
-    (function constructor() { display(); })();
-
     function makeRow(obj) {
         return '<tr class="' + obj.phoneNumber + '">' + '\n' +
                '<td class="serial-no">1</td>' + '\n' +
@@ -19,17 +17,11 @@ var tableRenderer = new function() {
     }
 
     function insert(obj) {
-        // console.log(obj);
         parent.prepend(makeRow(obj));
-        // reRenderSN();
     }
 
     function remove(key) {
         parent.find("." + key).remove();
-        // reRenderSN();
-    }
-
-    function display(str) {
     }
 
     function update(obj) {
@@ -48,7 +40,6 @@ var tableRenderer = new function() {
         insert: insert,
         remove: remove,        
         update: update,
-        display: display,
         reRenderSN: reRenderSN
     };
-}();
+};

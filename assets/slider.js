@@ -7,12 +7,12 @@ var slider = new function(containerSelector, scaleClass, initialSlidePageNo) {
         container  = $(containerSelector),
         slidePages = $(container).children();
 
-    (function constructor() {
+    (function () {
         setInitialSlidePage(initialSlidePageNo);
         setInterval(function() {
             $(window).on("resize", function() { resetSlides(); });
         }, 300);
-    })();
+    }());
 
     function init(_slideSpeed, _scaleSpeed, _timeGap) {
         slideSpeed = _slideSpeed || slideSpeed;
@@ -78,8 +78,6 @@ var slider = new function(containerSelector, scaleClass, initialSlidePageNo) {
     function nextSlide() { slide(); }
     function prevSlide() { slide(-1); }
 
-
-    // public members
     return {
         init: init,
         nextSlide: nextSlide,

@@ -1,24 +1,24 @@
 var app = new function() {
-    var forms    = $(".form form"),
-        addForm  = forms[0],
-        editForm = forms[1],
+    var forms                 = $(".form form"),
+        addForm               = forms[0],
+        editForm              = forms[1],
 
-        addFormButtons      = $(addForm).find('a'),
-        addFormCancelButton = addFormButtons[0],
-        addFormSubmitButton = addFormButtons[1],
-        addFormUtils        = new FormUtils(addForm),
+        addFormButtons        = $(addForm).find('a'),
+        addFormCancelButton   = addFormButtons[0],
+        addFormSubmitButton   = addFormButtons[1],
+        addFormUtils          = new FormUtils(addForm),
 
         editFormButtons       = $(editForm).find('a'),
         editFormCancelButton  = editFormButtons[0],
         editFormSubmitButton  = editFormButtons[1],
         editFormUtils         = new FormUtils(editForm),
         currentEditingDataKey = null,
-        editObj = null,
+        editObj               = null,
 
-        table          = $("table"),
-        tableFavButton = $(".table .btn");
+        table                 = $("table"),
+        tableFavButton        = $(".table .btn");
 
-    (function constructor() {
+    (function () {
         addAddFormCancelButtonListener();
         addAddFormSubmitButtonListener();
 
@@ -29,21 +29,21 @@ var app = new function() {
         loadTable();
 
         addSearchBarListener();
-    })();
+    }());
 
     function loadTable() {
-        var formDatas = storageManager.getAllData();
-        for (var i = formDatas.length - 1; i >= 0; i--) {
-            var formData = formDatas[i];
-            currentEditingDataKey = formData.phoneNumber;
-            addNewDataInTable(formData);
+        var tableData = storageManager.getAll();
+        for (var i = tableData.length - 1; i >= 0; i--) {
+            var tableRow = tableData[i];
+            currentEditingDataKey = tableRow.phoneNumber;
+            addNewDataInTable(tableRow);
         }
 
         tableRenderer.reRenderSN();
     }
 
-    function addNewDataInTable(formData) {
-        tableRenderer.insert(formData);
+    function addNewDataInTable(tableRow) {
+        tableRenderer.insert(tableRow);
 
         var rowButtons = table.find('a').filter('[data-tel="' + currentEditingDataKey +'"]');
         addTableEditButtonListener(rowButtons.filter('.edit'));
@@ -51,7 +51,7 @@ var app = new function() {
     }
 
     function removeDataFromTable() {
-        storageManager.remove(currentEditingDataKey);
+        storageManager.erase(currentEditingDataKey);
         tableRenderer.remove(currentEditingDataKey);
     }
 
@@ -96,7 +96,7 @@ var app = new function() {
             event.preventDefault();
 
             currentEditingDataKey = $(this).attr("data-tel");
-            editFormUtils.populateForm(storageManager.getData(currentEditingDataKey));
+            editFormUtils.populateForm(storageManager.get(currentEditingDataKey));
             slider.nextSlide();
         });
     }
@@ -106,7 +106,7 @@ var app = new function() {
         deleteButton.on('click', function(event) {
             event.preventDefault();
 
-            storageManager.remove($(this).attr("data-tel"));
+            storageManager.erase($(this).attr("data-tel"));
             tableRenderer.remove($(this).attr("data-tel"));
             tableRenderer.reRenderSN();
         });      
@@ -161,4 +161,4 @@ var app = new function() {
             });
         });  
     }
-}();
+};
